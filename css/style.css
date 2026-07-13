@@ -545,6 +545,16 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
+.scoreboard-countdown {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(243,239,230,0.2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--cream);
+  text-align: center;
+}
 
 /* Final CTA */
 .final-cta {
