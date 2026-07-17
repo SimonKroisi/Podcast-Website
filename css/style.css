@@ -675,6 +675,170 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   color: rgba(243,239,230,0.5);
 }
 
+/* ===== Abo page ===== */
+.btn-abo {
+  background: var(--red-bright);
+  color: var(--white);
+  box-shadow: 0 10px 25px -8px rgba(200,16,46,0.55);
+}
+.btn-abo:hover { background: var(--red-glow); }
+.btn-light {
+  background: var(--cream);
+  color: var(--black);
+}
+.btn-light:hover { background: var(--white); }
+
+.abo-teaser .btn { margin-top: 28px; }
+
+.abo-tiers {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.abo-tier {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(243,239,230,0.04);
+  border: 1px solid rgba(243,239,230,0.1);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.abo-tier:hover { transform: translateY(-6px); border-color: var(--red-glow); }
+.abo-tier--featured {
+  background: linear-gradient(160deg, rgba(200,16,46,0.18), rgba(200,16,46,0.04));
+  border-color: var(--red-bright);
+}
+.abo-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--red-bright);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 999px;
+}
+.abo-tier h3 { font-family: var(--font-body); font-size: 1.1rem; font-weight: 800; color: var(--white); }
+.abo-price {
+  margin: 14px 0 4px;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  color: var(--white);
+  line-height: 1;
+}
+.abo-price span {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(243,239,230,0.6);
+}
+.abo-tier > p:not(.abo-price) { margin: 0 0 20px; font-size: 0.9rem; color: rgba(243,239,230,0.7); }
+.abo-tier ul { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
+.abo-tier li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(243,239,230,0.85);
+}
+.abo-tier .check-icon { width: 22px; height: 22px; }
+.abo-tier .check-icon .icon { width: 13px; height: 13px; }
+.abo-tier .btn { margin-top: auto; justify-content: center; }
+.abo-note {
+  margin: 20px 0 0;
+  font-size: 0.82rem;
+  color: rgba(243,239,230,0.5);
+}
+
+/* Steps */
+.steps-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.step-card {
+  background: rgba(243,239,230,0.04);
+  border: 1px solid rgba(243,239,230,0.1);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+}
+.step-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--red-bright);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.step-card h3 { font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.step-card p { margin: 0; font-size: 0.92rem; color: rgba(243,239,230,0.7); }
+
+/* FAQ */
+.faq-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 760px;
+}
+.faq-item {
+  background: rgba(243,239,230,0.04);
+  border: 1px solid rgba(243,239,230,0.1);
+  border-radius: 14px;
+  padding: 0 22px;
+  transition: border-color 0.15s ease;
+}
+.faq-item[open] { border-color: var(--red-glow); }
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--white);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--red-glow);
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { margin: 0 0 18px; font-size: 0.92rem; color: rgba(243,239,230,0.75); }
+.faq-item p a { color: var(--red-glow); font-weight: 600; }
+
+/* Hosts: mehrteilige Bio + Buchungs-Link */
+.host-card p + p { margin-top: 10px; }
+.host-book {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--red-glow);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.host-book:hover { color: var(--white); }
+
 /* ===== Responsive ===== */
 @media (max-width: 980px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; padding-bottom: 50px; }
