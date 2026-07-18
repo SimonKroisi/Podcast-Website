@@ -688,7 +688,31 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 }
 .btn-light:hover { background: var(--white); }
 
-.abo-teaser .btn { margin-top: 28px; }
+.abo-teaser-card {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 40px;
+  align-items: center;
+  background:
+    radial-gradient(ellipse 600px 300px at 15% 10%, rgba(255,46,58,0.25), transparent 60%),
+    linear-gradient(160deg, var(--red) 0%, var(--red-dark) 100%);
+  border: 1px solid rgba(255,46,58,0.4);
+  border-radius: var(--radius);
+  padding: 48px;
+  box-shadow: var(--shadow-lg);
+}
+.abo-teaser-card .section-eyebrow { color: var(--cream); }
+.abo-teaser-card .section-lead { color: rgba(243,239,230,0.9); }
+.abo-teaser-card .btn { margin-top: 28px; }
+.abo-teaser-list { display: flex; flex-direction: column; gap: 14px; }
+.abo-teaser-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--white);
+}
 
 .abo-tiers {
   margin-top: 48px;
@@ -848,6 +872,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .warum-inner { grid-template-columns: 1fr; }
   .warum-visual { order: -1; }
+  .abo-teaser-card { grid-template-columns: 1fr; gap: 28px; }
+  .abo-tiers { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
 }
 @media (max-width: 760px) {
   .main-nav {
@@ -872,4 +898,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   .host-grid { grid-template-columns: 1fr; }
   .sponsor-tiers { grid-template-columns: 1fr; }
   .contact-form { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .abo-teaser-card { padding: 32px 24px; }
 }
