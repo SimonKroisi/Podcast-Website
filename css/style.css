@@ -484,6 +484,15 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   color: var(--white);
   background: linear-gradient(160deg, var(--red-bright), var(--red-dark));
 }
+.host-avatar-photo {
+  overflow: hidden;
+  background: none;
+}
+.host-avatar-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .host-card h3 { font-family: var(--font-body); font-size: 1.15rem; color: var(--white); margin-bottom: 10px; }
 .host-card p { margin: 0; color: rgba(243,239,230,0.7); font-size: 0.95rem; }
 
