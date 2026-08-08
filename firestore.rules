@@ -1,0 +1,106 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email in [
+        'podcastmj4@gmail.com',
+        'jedinger.michael@gmail.com'
+      ];
+    }
+
+    match /sponsorRequests/{requestId} {
+      allow read, update, delete: if false;
+
+      allow create: if request.resource.data.keys().hasAll(['name', 'email', 'message', 'createdAt'])
+        && request.resource.data.keys().hasOnly(['name', 'email', 'company', 'website', 'message', 'createdAt'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 200
+        && request.resource.data.email is string
+        && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+        && request.resource.data.email.size() <= 200
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0
+        && request.resource.data.message.size() <= 5000
+        && (!('company' in request.resource.data) || (request.resource.data.company is string && request.resource.data.company.size() <= 200))
+        && (!('website' in request.resource.data) || (request.resource.data.website is string && request.resource.data.website.size() <= 300))
+        && request.resource.data.createdAt == request.time;
+    }
+
+    match /tippspielEntries/{entryId} {
+      allow read: if isAdmin();
+      allow update, delete: if false;
+
+      allow create: if request.resource.data.keys().hasAll(['email', 'name', 'bundesligaMeister', 'bundesligaPokal', 'sessionId', 'createdAt'])
+        && request.resource.data.keys().hasOnly(['email', 'name', 'bundesligaMeister', 'bundesligaPokal', 'sonderfrage1', 'sonderfrage2', 'sessionId', 'createdAt'])
+        && request.resource.data.email is string
+        && request.resource.data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+        && request.resource.data.email.size() <= 200
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 200
+        && request.resource.data.bundesligaMeister is string
+        && request.resource.data.bundesligaMeister.size() <= 200
+        && request.resource.data.bundesligaPokal is string
+        && request.resource.data.bundesligaPokal.size() <= 200
+        && (!('sonderfrage1' in request.resource.data) || (request.resource.data.sonderfrage1 is string && request.resource.data.sonderfrage1.size() <= 500))
+        && (!('sonderfrage2' in request.resource.data) || (request.resource.data.sonderfrage2 is string && request.resource.data.sonderfrage2.size() <= 500))
+        && request.resource.data.sessionId is string
+        && request.resource.data.sessionId.size() <= 300
+        && request.resource.data.createdAt == request.time;
+    }
+
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      allow create: if request.auth != null && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly(['email', 'subscribed', 'createdAt'])
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 0
+        && request.resource.data.email.size() <= 200
+        && request.resource.data.subscribed == false
+        && request.resource.data.createdAt == request.time;
+
+      // subscribed is only ever flipped by the stripeWebhook Cloud Function
+      // (Admin SDK), which bypasses these rules. Clients can never write it.
+      allow update, delete: if false;
+    }
+
+    match /tips/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      allow create, update: if request.auth != null && request.auth.uid == userId
+        && request.auth.token.email_verified == true
+        && get(/databases/$(database)/documents/users/$(userId)).data.subscribed == true
+        && request.time < timestamp.date(2026, 9, 1)
+        && request.resource.data.keys().hasOnly(['email', 'answers', 'updatedAt'])
+        && request.resource.data.email is string
+        && request.resource.data.answers is map
+        && request.resource.data.answers.size() <= 60
+        && request.resource.data.updatedAt == request.time;
+
+      allow delete: if false;
+    }
+
+    match /questions/{questionId} {
+      allow read, update, delete: if false;
+
+      allow create: if request.auth != null
+        && request.auth.token.email_verified == true
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.subscribed == true
+        && request.resource.data.keys().hasOnly(['uid', 'email', 'question', 'createdAt'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.email is string
+        && request.resource.data.question is string
+        && request.resource.data.question.size() > 0
+        && request.resource.data.question.size() <= 1000
+        && request.resource.data.createdAt == request.time;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

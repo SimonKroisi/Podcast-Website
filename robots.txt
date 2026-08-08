@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin.html
+Disallow: /mitglied
+Disallow: /mitglied.html
+Disallow: /tippspiel-formular
+Disallow: /tippspiel-formular.html
+
+Sitemap: https://hochgwimmasnimma.at/sitemap.xml

@@ -3,12 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function () {
+  try {
+    if (sessionStorage.getItem('hgnView') === 'desktop') return;
+    if (window.matchMedia('(max-width: 760px)').matches) {
+      window.location.replace('mobile.html');
+    }
+  } catch (e) {}
+})();
+</script>
 <title>Hoch gwimmas nimma – Der österreichische Fußballpodcast</title>
 <meta name="description" content="Hoch gwimmas nimma – der österreichische Fußballpodcast mit Michael Jedinger und Jonas Weilinger. Bundesliga, Nationalteam, Transfers & ehrliche Meinungen. Jetzt auf Spotify hören.">
+<link rel="canonical" href="https://hochgwimmasnimma.at/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hoch gwimmas nimma">
+<meta property="og:locale" content="de_AT">
+<meta property="og:url" content="https://hochgwimmasnimma.at/">
+<meta property="og:title" content="Hoch gwimmas nimma – Der österreichische Fußballpodcast">
+<meta property="og:description" content="Der österreichische Fußballpodcast mit Michael Jedinger und Jonas Weilinger. Bundesliga, Nationalteam, Transfers & ehrliche Meinungen. Jetzt auf Spotify hören.">
+<meta property="og:image" content="https://hochgwimmasnimma.at/logo.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hoch gwimmas nimma – Der österreichische Fußballpodcast">
+<meta name="twitter:description" content="Der österreichische Fußballpodcast mit Michael Jedinger und Jonas Weilinger. Bundesliga, Nationalteam, Transfers & ehrliche Meinungen.">
+<meta name="twitter:image" content="https://hochgwimmasnimma.at/logo.jpeg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 256 256%22><rect width=%22256%22 height=%22256%22 rx=%2256%22 fill=%22%23141110%22/><path fill=%22%23c8102e%22 d=%22M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z%22/></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -21,16 +41,14 @@
       <span class="brand-ball"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span>
       <span class="brand-text">HOCH GWIMMAS<span class="brand-accent">NIMMA</span></span>
     </a>
-    <!-- TODO: Platzhalter-Link -> echten Spenden-Link einsetzen (z.B. Buy Me a Coffee / Ko-fi / PayPal.me) -->
-    <a class="btn btn-donate" href="#" target="_blank" rel="noopener">
-      <span aria-hidden="true">🍺</span> Buy us a Beer
+    <a class="btn btn-donate" href="https://buy.stripe.com/28E28qerk2LfaD63Dsdby01" target="_blank" rel="noopener">
+      <span aria-hidden="true">🍺</span><span class="btn-donate-label"> Buy us a Beer (3€)</span>
     </a>
     <nav class="main-nav" id="mainNav">
       <a href="#hoeren">Neueste Folgen</a>
-      <a href="folgen.html">Alle Folgen</a>
       <a href="ueber-uns.html">Über uns</a>
-      <a href="abo.html">Abo</a>
       <a href="sponsoring.html">Sponsoring</a>
+      <a href="mitglied.html">Mitgliederbereich</a>
     </nav>
     <a class="btn btn-primary btn-spotify header-cta" href="https://open.spotify.com/show/16HLqTLNEkPDlYqTFODjHy" target="_blank" rel="noopener">
       <span class="spotify-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></span> Jetzt hören
@@ -67,7 +85,7 @@
           <a class="btn btn-primary btn-spotify btn-lg" href="https://open.spotify.com/show/16HLqTLNEkPDlYqTFODjHy" target="_blank" rel="noopener">
             <span class="spotify-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></span> Jetzt auf Spotify hören
           </a>
-          <a class="btn btn-ghost btn-lg" href="folgen.html">
+          <a class="btn btn-ghost btn-lg" href="https://open.spotify.com/show/16HLqTLNEkPDlYqTFODjHy" target="_blank" rel="noopener">
             Alle Folgen ansehen <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
           </a>
         </div>
@@ -104,7 +122,7 @@
           loading="lazy">
         </iframe>
       </div>
-      <a class="section-link" href="folgen.html">Alle Folgen ansehen <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+      <a class="section-link" href="https://open.spotify.com/show/16HLqTLNEkPDlYqTFODjHy" target="_blank" rel="noopener">Alle Folgen ansehen <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
     </div>
   </section>
 
@@ -115,11 +133,11 @@
         <p class="section-eyebrow">Warum reinhören</p>
         <h2 class="section-title">Für echte Fußballfans gemacht</h2>
         <ul class="check-list">
-          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Jede Woche frisch: News, Analysen und Meinungen zum österreichischen Fußball</li>
-          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Ehrliche Einschätzungen – ohne Blatt vorm Mund</li>
-          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Nationalteam-Check vor und nach jedem Spiel</li>
-          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Transfergerüchte eingeordnet statt nur wiedergekaut</li>
-          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Zwei Perspektiven, eine Leidenschaft: der österreichische Fußball</li>
+          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Jede Woche montags eine neue Folge</li>
+          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Länderspiel Analyse des österreichischen Nationalteams</li>
+          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Tagesaktuelles über die ÖFB Stars</li>
+          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> ÖFB-Legenden</li>
+          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Quiz &amp; vieles mehr</li>
         </ul>
         <a class="btn btn-primary btn-spotify" href="https://open.spotify.com/show/16HLqTLNEkPDlYqTFODjHy" target="_blank" rel="noopener">
           <span class="spotify-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></span> Jetzt abonnieren
@@ -143,10 +161,10 @@
     <div class="container partner-strip-inner">
       <p class="section-eyebrow">Unsere Partner</p>
       <div class="partner-strip-logos">
-        <a href="sponsoring.html#partner" aria-label="Aurelium Real Estate Immobilien">
+        <a href="https://aurelium-realestate.com/" target="_blank" rel="noopener" aria-label="Aurelium Real Estate Immobilien">
           <img src="images/sponsors/aurelium-real-estate.jpeg" alt="Aurelium Real Estate Immobilien" loading="lazy">
         </a>
-        <a href="sponsoring.html#partner" aria-label="Pick Your Squad">
+        <a href="https://pickyoursquad.com/#/home" target="_blank" rel="noopener" aria-label="Pick Your Squad">
           <img src="images/sponsors/pick-your-squad.jpeg" alt="Pick Your Squad" loading="lazy">
         </a>
       </div>
@@ -158,21 +176,22 @@
     <div class="container">
       <div class="abo-teaser-card">
         <div class="abo-teaser-copy">
-          <p class="section-eyebrow">Neu · Abo</p>
-          <h2 class="section-title">Noch nicht genug? Hol dir das Abo</h2>
+          <p class="section-eyebrow">Neu · Tippspiel</p>
+          <h2 class="section-title">Noch nicht genug? Hol dir das Tippspiel-Ticket</h2>
           <p class="section-lead">
-            Exklusive Bonusfolgen, werbefreies Hören und Early Access – die
-            wöchentliche Folge bleibt für alle gratis. Unterstütze Michi &amp;
-            Jonas und hol dir mehr österreichischen Fußball ins Ohr.
+            Tippe den Meister &amp; Pokalsieger der europäischen Topligen sowie
+            die internationalen Wettbewerbe. Stelle Fragen für die nächste
+            Podcastfolge – die wöchentliche Folge bleibt für alle gratis.
+            Unterstütze Michi &amp; Jonas mit einem Abo.
           </p>
           <a class="btn btn-light btn-lg" href="abo.html">
-            Abo entdecken <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+            Tippspiel entdecken <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
           </a>
         </div>
         <ul class="abo-teaser-list">
-          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Exklusive Bonusfolgen</li>
-          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Alle Folgen ohne Werbung</li>
-          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Näher an der Show &amp; direkte Unterstützung</li>
+          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Liga &amp; Championsleague Tippspiel</li>
+          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Deine Frage kommt in den Podcast</li>
+          <li><span class="check-icon"><svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm71.88,151.42h-24L166.1,158l11.3-32.94L193.15,120l18.6,14.26A83.42,83.42,0,0,1,199.88,171.42ZM44.25,134.21,62.85,120l15.75,5.11L89.9,158l-9.75,13.42h-24A83.42,83.42,0,0,1,44.25,134.21ZM111.85,148l-9.54-27.77L128,102.56l25.69,17.67L144.15,148Zm80.66-73.73-6.78,22.85-15.81,5.14L140,81.69V65.46l21.22-14.59A84.27,84.27,0,0,1,192.51,74.27ZM94.78,50.87,116,65.46V81.69L86.08,102.26,70.27,97.12,63.49,74.27A84.27,84.27,0,0,1,94.78,50.87Zm13.58,158.79-8.62-24.37L109.39,172h37.22l9.65,13.29-8.62,24.37a83.59,83.59,0,0,1-39.28,0Z"/></svg></span> Chance auf ein Trikot Deiner Wahl</li>
         </ul>
       </div>
     </div>
@@ -275,6 +294,7 @@
       </a>
     </div>
     <a class="footer-link" href="https://open.spotify.com/show/16HLqTLNEkPDlYqTFODjHy" target="_blank" rel="noopener">Auf Spotify anhören <svg class="icon" viewBox="0 0 256 256" aria-hidden="true"><path d="M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z"/></svg></a>
+    <p class="footer-legal"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="agb.html">AGB</a></p>
     <p class="footer-copy">© <span id="year"></span> Hoch gwimmas nimma</p>
   </div>
 </footer>
