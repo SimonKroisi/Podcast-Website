@@ -157,6 +157,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   font-family: var(--font-display);
   font-size: 1.05rem;
   letter-spacing: 0.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .brand-ball { font-size: 1.3rem; color: var(--red-bright); }
 .brand-ball .icon { width: 26px; height: 26px; }
@@ -182,12 +184,13 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .m-tabbar, .m-sheet-backdrop, .m-sheet { display: none; }
 .main-nav {
   display: flex;
-  gap: 28px;
+  gap: clamp(14px, 1.8vw, 28px);
   margin-left: auto;
 }
 .main-nav a {
   font-size: 0.92rem;
   font-weight: 600;
+  white-space: nowrap;
   color: rgba(243,239,230,0.75);
   transition: color 0.15s ease;
 }
